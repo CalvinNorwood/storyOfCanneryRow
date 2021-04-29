@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+  </head>
+  <body id="delmar">
+    <div class="mapBtn">
+      <button id="mapButton2" class="mapButton"><img class="mapImg" src="imgs/mapBtn1.png"  /></button>
+    </div>
+
+    <div class="buttons" style="position: absolute">
+      <button id="bucketBtn"><!--  <img src="imgs/bucket1.png" style="width:60%;height:60%;">. --></button>
+
+      <button id="boatBtn"><!--  <img src="imgs/boat1.png" style="width:60%;height:60%;"> --> </button>    
+
+      
+      
+    </div>
+
+    <form class="formBackward" action="cannery.html">
+        <input type="image"  src="imgs/prevStopCanneries.png" style="width:250px;height:auto;" value="" /> 
+    </form>
+
+    <form class="formForward3" id="formForward3"   action="lab.html">
+        <input type="image"  src="imgs/nextStopLab1.png" style="width:250px;height:auto;" value="" /> 
+      </form>
+
+
+    <div id="navModal" class="modal">
+      <!-- Modal content -->
+      
+      <div class="modal-contentNav">
+        <span class="close">&times;</span>
+        <img class="modalImg" id="mapTitle" src="imgs/mapTitle2.png">
+        <!--<img class="modalImg" src="imgs/map1.png">-->
+        
+        <div class="grid-container">
+          <div class="grid-item" class="grid-itemEmpty">
+            <form class="navIndex"        action="index.html">
+              <input type="image"  src="imgs/1sardineFishing2.png" style="width:110%;height:110%;" value="" /></div>
+            </form>
+          <div class="grid-item">
+            <div class="grid-item">
+            <form class="navCan"          action="cannery.html">
+              <input type="image"  src="imgs/2cannery4.png" style="width:100%;height:100%;" value="" />
+            </form></div>
+          </div>
+          <div class="grid-item"><!--3--></div>  
+          <div class="grid-item" class="grid-itemEmpty"><!--4--></div>
+          <div class="grid-item"><!--5--></div>
+          <div class="grid-item"><!--6--></div>  
+          <div class="grid-item" class="grid-itemEmpty"><!--7--> </div>
+          <div class="grid-item">
+            <form class="navFire" action="delmar.html">
+              <input type="image"  src="imgs/3fire2.png" style="width:100%;height:100%;" value="" />
+            </form>
+          </div>
+          <div class="grid-item"><!--9--></div>
+          <div class="grid-item" class="grid-itemEmpty"><!--10--></div>
+          <div class="grid-item">
+            <form class="navLab" action="lab.html">
+              <input type="image"  src="imgs/4lab2.png" style="width:100%;height:100%;" value="" /> 
+            </form>
+          </div>
+          <div class="grid-item"><!--12--></div> 
+          <div class="grid-item" class="grid-itemEmpty"><!--13--></div> 
+            <form class="navAquarium"        action="aquarium.html">
+              <input type="image" src="imgs/5aquarium3.png" style="width:90%;height:90;" value="" />
+            </form>
+          <div class="grid-item">
+            <!--15-->
+          </div>      
+        </div>
+      </div>
+    </div>
+
+    <div id="bucketModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Getting the fish from the boats to the sea was a challenge because of the dangerous, rocky shores. Metal buckets carrying 600 pounds of fish were winched up to the canneries by wire cables. </p>
+        <img class="modalImg" src="imgs/bucketsScSh1.png">
+      </div>
+    </div>
+
+    <div id="boatModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Boats called clippers were used to catch fish. That was until cannery ownder Knut Hovden introduced the purse seiners to his business in 1927. He also replaced the bucket winch system with floating wooden hoppers to accomodate for the bigger catches. </p>
+        <img class="modalImg" src="imgs/skipper.jpg">
+      </div>
+    </div>
+
+
+    <p id="fireText1">Where had the sardines gone? One biologist was right there to study what was happening. <br><br>His name was Ed Ricketts.</p>
+    <p id="fireText2">Unfortunately, he was a little too close to the canneries. When they caught fire in 1936, he lost his lab. And he was left with nothing.</p>
+    <p id="fireText3">Thankfully, he had a friend named John Steinbeck ready to help get the lab built again.</p>
+
+    <div id="contentDelMar">
+      <img id="delMarArt" src="imgs/fireArt3.png">
+      <img id="delMarArt2" src="imgs/fireArt3.png">
+      <img id="delMarFireAfter" src="imgs/fireAfter1.png">
+      <img id="delMarBG" src="imgs/fireBG2.jpg">
+    </div>
+    
+    <script>
+      $("#mapButton2").on("click",myButton);
+      $("#bucketBtn").on("click",myBucketButton);
+      $("#boatBtn").on("click",myBoatButton);
+      var modals = $(".modal");
+      var modal = document.getElementById("navModal");
+      var modal2 = document.getElementById("bucketModal");
+      var modal3 = document.getElementById("boatModal");
+      var btn = document.getElementById("#mapButton2");
+      var btn2 = document.getElementById("#bucketBtn");
+      var btn3 = document.getElementById("#boatBtn");
+      var span = document.getElementsByClassName("close")[0];
+      var span2 = document.getElementsByClassName("close")[1];
+      var span3 = document.getElementsByClassName("close")[2];
+      function myButton(){
+        modal.style.display = "block";
+      }
+
+      
+
+      //click x of nav to close
+      span.onclick = function() {
+        modal.style.display = "none";
+        //modal2.style.display = "none";
+      } 
+      
+      //click x of bucket modal to close  
+      span2.onclick = function() {
+        modal2.style.display = "none";
+      } 
+
+      //click x of boat modal to close  
+      span3.onclick = function() {
+        modal3.style.display = "none";
+      } 
+
+      // outside click to close for nav
+      window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+
+      // outside click to close for bucketModal
+     window.addEventListener("click", function(event) {
+
+        if (event.target == modal2) {
+          modal2.style.display = "none";
+        }
+      });
+      
+      // outside click to close for boatModal
+     window.addEventListener("click", function(event) {
+
+        if (event.target == modal3) {
+          modal3.style.display = "none";
+        }
+      });
+
+      function myBucketButton(){
+        modal2.style.display = "block";
+      }
+
+      function myBoatButton(){
+        modal3.style.display = "block";
+      }
+
+//Opacity transition between images
+      const checkpoint = 600;
+      const checkpoint2 = 1000;
+    window.addEventListener("scroll", () =>     {
+      const currentScroll = window.pageXOffset;
+      const currentScroll2 = window.pageXOffset - 600;
+      if (currentScroll <= checkpoint) {
+        opacity = 1 - currentScroll /     checkpoint;
+     
+      } else {
+        opacity = 0;
+      
+      }
+      document.querySelector("#delMarArt").style.opacity = opacity;
+    });
+
+    window.addEventListener("scroll", () =>     {
+      const currentScroll = window.pageXOffset;
+      const currentScroll2 = window.pageXOffset - 800;
+      if (currentScroll <= checkpoint) {
+        opacity = 0 + currentScroll /     checkpoint;
+      } else if (currentScroll2 <= checkpoint2) {
+        opacity = 1 - currentScroll2 /     checkpoint2;
+      } else {
+        opacity = 0;
+      }
+      
+      document.querySelector("#delMarFireAfter").style.opacity = opacity;
+    });
+    window.addEventListener("scroll", () =>     {
+      const currentScroll = window.pageXOffset;
+      const currentScroll2 = window.pageXOffset - 800;
+      if (currentScroll2 <= checkpoint2) {
+        opacity = 0 + currentScroll2 /     checkpoint2;
+      } else {
+        opacity = 1;
+      }
+      document.querySelector("#delMarArt2").style.opacity = opacity;
+    });
+  
+   
+    </script>
+  </body>
+</html>                 

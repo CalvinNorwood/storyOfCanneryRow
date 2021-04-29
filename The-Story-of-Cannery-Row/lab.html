@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+  </head>
+  <body>
+    <div class="mapBtn">
+      <button id="mapButton2" class="mapButton"><img class="mapImg" src="imgs/mapBtn1.png"  /></button>
+    </div>
+
+    <div class="buttons" style="position: relative">
+        <button id="johnBtn"><!--  <img src="imgs/bucket1.png" style="width:60%;height:60%;">. --></button>
+
+      <button id="campbellBtn"><!--  <img src="imgs/boat1.png" style="width:60%;height:60%;"> --> </button>  
+      <!--<img id="labArt" src="imgs/capArtLabInterior.jpg">-->
+
+      
+      
+
+    </div>
+
+    <div id="navModal" class="modal">
+      <!-- Modal content -->
+      
+      <div class="modal-contentNav">
+        <span class="close">&times;</span>
+        <img class="modalImg" id="mapTitle" src="imgs/mapTitle2.png">
+        <!--<img class="modalImg" src="imgs/map1.png">-->
+        
+        <div class="grid-container">
+          <div class="grid-item" class="grid-itemEmpty">
+            <form class="navIndex"        action="index.html">
+              <input type="image"  src="imgs/1sardineFishing2.png" style="width:110%;height:110%;" value="" /></div>
+            </form>
+          <div class="grid-item">
+            <div class="grid-item">
+            <form class="navCan"          action="cannery.html">
+              <input type="image"  src="imgs/2cannery4.png" style="width:100%;height:100%;" value="" />
+            </form></div>
+          </div>
+          <div class="grid-item"><!--3--></div>  
+          <div class="grid-item" class="grid-itemEmpty"><!--4--></div>
+          <div class="grid-item"><!--5--></div>
+          <div class="grid-item"><!--6--></div>  
+          <div class="grid-item" class="grid-itemEmpty"><!--7--> </div>
+          <div class="grid-item">
+            <form class="navFire" action="delmar.html">
+              <input type="image"  src="imgs/3fire2.png" style="width:100%;height:100%;" value="" />
+            </form>
+          </div>
+          <div class="grid-item"><!--9--></div>
+          <div class="grid-item" class="grid-itemEmpty"><!--10--></div>
+          <div class="grid-item">
+            <form class="navLab" action="lab.html">
+              <input type="image"  src="imgs/4lab2.png" style="width:100%;height:100%;" value="" /> 
+            </form>
+          </div>
+          <div class="grid-item"><!--12--></div> 
+          <div class="grid-item" class="grid-itemEmpty"><!--13--></div> 
+            <form class="navAquarium"        action="aquarium.html">
+              <input type="image" src="imgs/5aquarium3.png" style="width:90%;height:90;" value="" />
+            </form>
+          <div class="grid-item">
+            <!--15-->
+          </div>      
+        </div>
+      </div>
+    </div>
+
+    <div id="johnModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>John Steinbeck</p>
+        <img class="modalImg" src="imgs/John_Steinbeck_1939.jpeg">
+      </div>
+    </div>
+
+    <div id="campbellModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Joseph Campell was another writer who befriended Ed Ricketts. </p>
+        <img class="modalImg" src="imgs/Joseph_Campbell_1982.jpeg">
+      </div>
+    </div>
+
+    <div class="text1">
+      <p id="labText1" class="textWithBackground">John Steinbeck made Ocean View Avenue famous with his novel <i>Cannery Row</i>. He took inspiration from real people from the area, expecially his friend Ed Ricketts.</p>
+    </div>
+    <div class="text2">
+      <p id="labText2" class="textWithBackground">But could Ed solve the mystery of the missing Sardines?</p>
+    </div>
+    <div class="text3">
+      <p id="labText3" class="textWithBackground">Oh, right...</p>
+    </div>
+
+    <div id="contentLab">
+      <img id="labArt" src="imgs/labInteriorArt.jpg">
+    </div>
+
+    <form class="formBackward" action="delmar.html">
+        <input type="image"  src="imgs/prevStopFire.png" style="width:250px;height:auto" value="" /> 
+    </form>
+
+    <form class="formForward4" id="formForwardLab"   action="aquarium.html">
+        <input type="image"  src="imgs/nextStopAquarium.png" style="width:250px;height:auto;" value="" /> 
+    </form>
+    
+    <script>
+      $("#mapButton2").on("click",myButton);
+      $("#johnBtn").on("click",myJohnButton);
+      $("#campbellBtn").on("click",myCampbellButton);
+      let modals = $(".modal");
+      let modal = document.getElementById("navModal");
+      let johnModal2 = document.getElementById("johnModal");
+      let campbellModal3 = document.getElementById("campbellModal");
+      let btn = document.getElementById("#mapButton2");
+      let johnBtn2 = document.getElementById("johnBtn");
+      let campbellBtn3 = document.getElementById("campbellBtn");
+      let span = document.getElementsByClassName("close")[0];
+      let span2 = document.getElementsByClassName("close")[1];
+      let span3 = document.getElementsByClassName("close")[2];
+      function myButton(){
+        modal.style.display = "block";
+      }
+
+      
+
+      //click x of nav to close
+      span.onclick = function() {
+        modal.style.display = "none";
+        //modal2.style.display = "none";
+      } 
+      
+      //click x of bucket modal to close  
+      span2.onclick = function() {
+        johnModal2.style.display = "none";
+      } 
+
+      //click x of boat modal to close  
+      span3.onclick = function() {
+        campbellModal3.style.display = "none";
+      } 
+
+      // outside click to close for nav
+      window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+
+      // outside click to close for bucketModal
+     window.addEventListener("click", function(event) {
+
+        if (event.target == johnModal2) {
+          johnModal2.style.display = "none";
+        }
+      });
+      
+      // outside click to close for boatModal
+     window.addEventListener("click", function(event) {
+
+        if (event.target == campbellModal3) {
+          campbellModal3.style.display = "none";
+        }
+      });
+
+      function myJohnButton(){
+        johnModal2.style.display = "block";
+      }
+
+      function myCampbellButton(){
+        campbellModal3.style.display = "block";
+      }
+    </script>
+  </body>
+</html>
